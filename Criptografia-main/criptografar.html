@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animacao Criptografia</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: black;
+        }
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="cryptoAnimation"></canvas>
+
+    <script>
+        const canvas = document.getElementById("cryptoAnimation");
+        const ctx = canvas.getContext("2d");
+
+        const characters = "!@#$%^&*()_-+=[]{}|;:'\",.<>/?";
+        const columns = 150;
+        const fontSize = 14;
+        const matrix = [];
+
+        // Inicialização da matriz com caracteres aleatórios
+        for (let i = 0; i < columns; i++) {
+            matrix[i] = [];
+            for (let j = 0; j < window.innerHeight / fontSize; j++) {
+                matrix[i][j] = characters[Math.floor(Math.random() * characters.length)];
+            }
+        }
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        function draw() {
+            ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = "#00ff00";
+            ctx.font = `${fontSize}px monospace`;
+
+            for (let i = 0; i < columns; i++) {
+                for (let j = 0; j < matrix[i].length; j++) {
+                    ctx.fillText(matrix[i][j], i * fontSize, j * fontSize);
+                }
+
+                // Adiciona um novo caractere aleatório à coluna
+                if (Math.random() > 0.97) {
+                    matrix[i].unshift(characters[Math.floor(Math.random() * characters.length)]);
+                    matrix[i].pop();
+                }
+            }
+        }
+
+        function update() {
+            draw();
+            requestAnimationFrame(update);
+        }
+
+        window.addEventListener("resize", () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        update();
+    </script>
+
+</body>
+</html>

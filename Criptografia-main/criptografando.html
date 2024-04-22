@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" type="text/css" href="stile.css"> -->
+  <!--<script src="script.js"></script> -->
+<!--  <script src="caminho/para/bigInt.js"></script> -->
+  
+    <link href = " https://oliveiral2001.github.io/Criptografia/sytle.css" rel = "stylesheet" > 
+    <script src = " https://oliveiral2001.github.io/Criptografia/script.js "></script> 
+  
+        
+<title>Criptografia</title>
+</head>
+<body>
+
+<div id="titulo">
+<!-- Titulo na página -->
+<h1>Aplicativo web de criptografia RSA</h1>
+</div>
+
+
+
+
+
+ 
+
+  <div class="criandoaschaves"> 
+            <h4>______________________________________________________________________________________________________</h4>
+                <h2>  Criando as chaves </h2> 
+            
+                        
+           
+        
+            
+                    <div class="criptografar">
+
+                            <label for="numP">Digite um numero primo P:</label>
+                            <input type="number" class="campo" id="numP">
+                            <br>
+                            <br>
+                            <label class="campo" for="numQ">Digite um numero primo Q:</label>
+                            <input type="number" class="campo" id="numQ">
+                            <br>
+                            <br>
+                              <button class="botao" onclick="realizarCalculoN()">Calcular N</button> 
+                            <br>
+                            <p id="N"> </p>
+
+
+                            <button class="botao" onclick="realizarCalculoG()">Calcular G</button> 
+                            <br>
+                            <p id="G"> </p>
+
+                            
+                            <br>
+                            <br>
+                            <label for="J">Digite um numero J  :</label>
+                            <input type="number" class="campo" id="J" placeholder="1<J<G">
+                            
+                            <br>
+                            <br>
+                            <label for="vG">Digite o numero de G  :</label>
+                            <input type="number" class="campo" id="vG">
+                            <br>
+                            <br>
+                            <button class="botao" onclick="calcularinverso()">Calcular D</button> 
+                            <br>
+                            <p id="resultado"> </p>
+
+
+                 
+                     </div>
+                     <br>
+                     <br>
+                     <h4>____________________________________________________________________________________________________</h4>
+    </div>
+
+        <br>
+
+
+<div class="criptografando"> 
+    <h2>  Criptografando </h2>
+
+  
+    <br>
+    <label for="mensagem"> Digite a mensagem para converter para tabela ascii</label>
+    <input type="text" class="campo" id ="mensagem" placeholder="INSIRA SUA MENSAGEM">
+    <br>
+    <br>
+    <button class="botao" onclick="converterParaASCII()" >converter para ASCII</button>
+
+    <h4> <p id="tabelaASCII"></p> </h4>
+
+
+    <label for="numM">Digite o M :</label>
+    <input type="number" class="campo" id="numM">
+    <br>
+    <br>
+    <label for="numJ">Digite o J:</label>
+    <input type="number" class="campo" id="numJ">
+    <br>
+    <br>
+    <label for="numN">Digite o N:</label>
+    <input type="number" class="campo" id="numN">
+    <br>
+    <br>
+    <button class="botao" onclick="calcularmodexponencial()">Criptografar</button> 
+    <br>
+    <h4> <p id="S" ></p> </h4>
+   
+    <button class="botao" onclick="criptografar()">Criptografardireto</button> 
+    <br>
+    <h4> <p id="R" ></p> </h4>
+   
+    
+
+
+   
+
+</div>
+
+<div id="descriptografando"> 
+    <h4>_____________________________________________________________________________________________</h4>
+
+            <br>
+            <h2>Descriptografando</h2>
+           
+         
+            <br>
+            <label for="numerosC"> digite a mensagem criptografada:</label>
+          
+          <input type="number" class="campo" id="numerosC" placeholder="Digite sua mensagem">   
+            <br>
+            <br>
+            <label for="numC">digite um caractere da mensaagem :</label>
+            <input type="number" class="campo" id="numC">
+            <br>
+            <br>
+            <label for="numD">Digite o D:</label>
+            <input type="number" class="campo" id="numD">
+            <br>
+            <br>
+            <label for="nuMN">Digite o N:</label>
+            <input type="number" class="campo" id="nuMN">
+            <br>
+            <br>
+            <button class="botao" onclick="calcular()">Descriptografar</button>
+            
+            <br>
+            <h4> <p id="F" ></p> </h4>
+            <br>
+
+            <button class="botao" onclick="ModExponencial()">Descriptografardireto</button>
+            
+            <br>
+            <h4> <p id="U" ></p> </h4>
+
+
+           
+         
+        <h4>_______________________________________________________________________________________________</h4>
+</br>
+  </div>
+
+<!-- Imagem
+<img src="./img/GettyImages-1244304812.webp" alt="Foto do Bolsonaro">
+-->
+<!-- Link -->
+<a href="/aplicativo-principal/index.html"> 
+
+  <button class="botao"> voltar </button>
+</a>
+<br>
+<p><a href="https://www.lambda3.com.br/2012/12/entendendo-de-verdade-a-criptografia-rsa/" target="_blank">Saiba mais</a></p>
+
+</body>
+
+</html>
+
