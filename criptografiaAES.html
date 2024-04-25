@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AES Encryption and Decryption</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.js"></script>
+</head>
+<body>
+<h2>AES Encryption and Decryption</h2>
+
+<label for="message">Message:</label><br>
+<textarea id="message" rows="4" cols="50"></textarea><br><br>
+
+<button onclick="encryptMessage()">Encrypt</button>
+<button onclick="decryptMessage()">Decrypt</button><br><br>
+
+<label for="encrypted">Encrypted Message:</label><br>
+<textarea id="encrypted" rows="4" cols="50" readonly></textarea><br><br>
+
+<label for="decrypted">Decrypted Message:</label><br>
+<textarea id="decrypted" rows="4" cols="50" readonly></textarea><br><br>
+
+<script>
+// Função para criptografar a mensagem
+function encryptMessage() {
+    var message = document.getElementById("message").value;
+    var key = "chave_secreta"; // Chave de criptografia (deve ter 16, 24 ou 32 caracteres)
+    var encrypted = CryptoJS.AES.encrypt(message, key).toString();
+    document.getElementById("encrypted").value = encrypted;
+}
+
+// Função para descriptografar a mensagem
+function decryptMessage() {
+    var encrypted = document.getElementById("encrypted").value;
+    var key = "chave_secreta"; // Chave de criptografia (deve ser a mesma usada para criptografar)
+    var decrypted = CryptoJS.AES.decrypt(encrypted, key).toString(CryptoJS.enc.Utf8);
+    document.getElementById("decrypted").value = decrypted;
+}
+</script>
+
+</body>
+</html>

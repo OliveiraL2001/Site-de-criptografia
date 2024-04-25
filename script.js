@@ -163,7 +163,31 @@ function calcularModExponencial(M, J, N) {
 
 
 //funcao numero/numero
+function calcular() {
+  // Obter os valores dos elementos HTML e converter para números inteiros
+  let numC = parseInt(document.getElementById("numC").value);
+  let numD = parseInt(document.getElementById("numD").value);
+  let nuMN = parseInt(document.getElementById("nuMN").value);
 
+  // Verificar se os valores lidos são válidos
+  if (isNaN(numC) || isNaN(numD) || isNaN(nuMN)) {
+    alert("Por favor, insira números válidos para C, D e N.");
+    return;
+  }
+
+  // Calcular o resultado da operação de exponenciação modular
+  let resultadoModExponencial = calcularModExponencial(numC, numD, nuMN);
+
+  // Exibir o resultado na página HTML
+  document.getElementById("F").textContent = "O resultado de N é: " + resultadoModExponencial;
+}
+
+function calcularModExponencial(C, D, N) {
+  // Realizar a operação de exponenciação modular
+  return ((C ** D) % N);
+}
+
+/*
 function calcular() {
   let  numC = BigInt(document.getElementById("numC").value);
   let  numD = BigInt(document.getElementById("numD").value);
@@ -184,7 +208,7 @@ return((C ** D) %  N );
 
 
 }
-
+*/
 
 //direto
 
@@ -194,12 +218,8 @@ function ModExponencial() {
   let numD = parseInt(document.getElementById("numD").value);
   let nuMN = parseInt(document.getElementById("nuMN").value);
 
-  // Validar entradas
- /* if (numerosC.some(isNaN) || isNaN(numD) || isNaN(numN)) {
-    alert("Por favor, insira números válidos.");
-    return;
-  }
-*/
+
+
   // Calcular o resultado para cada número em C
   let resultadoModExponencial = numerosC.map(c => BigInt(c) ** BigInt(numD) % BigInt(nuMN));
 

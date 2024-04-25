@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <!-- <link rel="stylesheet" type="text/css" href="stile.css"> -->
+      <link href = " https://oliveiral2001.github.io/Criptografia/sytle.css" rel = "stylesheet" > 
+  <!--   <script src = "https://oliveiral2001.github.io/Criptografia/script.js "><script> -->
+  <title>O que é a criptografia RSA</title>
+</head> 
+<body>
+
+
+  <ul>
+    <div class="subtitulo">  <h2> O que é a criptografia AES </h2> </div>
+ <div class="texto"> 
+  <p> Entrada de Dados:
+    O algoritmo AES recebe como entrada:
+        Uma chave de criptografia (128, 192 ou 256 bits).
+        Um bloco de dados a ser criptografado (normalmente 128 bits de tamanho).
+    O bloco de dados é dividido em uma matriz retangular de 4x4 bytes (uma matriz de estado).
+    
+  </p>
+  <h3>Funciona da seguite forma </h3> 
+ <p>  <div  class="etapas"> <br> 
+ 1°- A chave de criptografia é expandida e preparada para ser usada durante várias rodadas de criptografia.
+ <br>
+ 2°- Cada chave de rodada é derivada da chave original usando um algoritmo específico.
+ <br>
+ 3°- Rounds (Rodadas):
+ O AES opera em várias rodadas (10, 12 ou 14 rodadas dependendo do tamanho da chave).
+ Cada rodada executa uma série de transformações no bloco de dados. <br>
+
+ SubBytes:
+ Cada byte do bloco de dados é substituído por um valor correspondente em uma S-Box (caixa de substituição) predefinida.
+ Isso fornece confusão nos dados, dificultando a identificação de padrões.<br> 
+ 5°- Agora calculamos D = J⁽⁻¹⁾ mod G (este é o calculo do inverso multiplicativo modular) <br>
+    6°- Seja M a string numerica que queremos codificar (Uma mensagem convestida para tabela ASCII)<br>
+    MixColumns:
+Cada coluna da matriz de estado é tratada como um polinômio, e é multiplicada por uma matriz fixa.<br>
+Isso embaralha ainda mais os bytes dentro de cada coluna.<br>
+
+AddRoundKey:
+A chave de rodada atual é combinada com o bloco de dados usando uma operação de XOR (OU exclusivo).
+Isso adiciona uma camada de segurança, misturando os dados com a chave.<br>
+
+Rodada Final:
+A rodada final não inclui a etapa MixColumns.<br>
+
+Resultado:
+Após a conclusão das rodadas, o bloco de dados é criptografado.<br>
+
+Decifragem:
+
+A decifragem ocorre aplicando o inverso de cada passo na ordem inversa.<br>
+
+O AES é amplamente considerado seguro e eficiente para criptografia de dados. Sua força vem da combinação de várias etapas de transformação, dificultando a recuperação dos dados originais sem a chave de criptografia correta. <br>
+    8°- <br>
+    9° <br>
+  </div>
+<br>
+    <h3>Vamos aplicar em um exemplo </h3>
+<div class="etapas">
+   ”<br>
+     <br>
+   2°   <br>
+     <br>
+    
+  <br>
+    <br>
+  
+     D= 235 <br>
+
+     </p>  </div> </div>
+
+     <a href="index.html"> 
+
+      <button class="botao"> voltar </button>
+ </a>
+
+</body>
+       </html>
+<!-- 
+Entrada de Dados:
+O algoritmo AES recebe como entrada:
+    Uma chave de criptografia (128, 192 ou 256 bits).
+    Um bloco de dados a ser criptografado (normalmente 128 bits de tamanho).
+O bloco de dados é dividido em uma matriz retangular de 4x4 bytes (uma matriz de estado).
+
+Etapa de Chave:
+A chave de criptografia é expandida e preparada para ser usada durante várias rodadas de criptografia.
+Cada chave de rodada é derivada da chave original usando um algoritmo específico.
+
+Rounds (Rodadas):
+O AES opera em várias rodadas (10, 12 ou 14 rodadas dependendo do tamanho da chave).
+Cada rodada executa uma série de transformações no bloco de dados.
+
+SubBytes:
+Cada byte do bloco de dados é substituído por um valor correspondente em uma S-Box (caixa de substituição) predefinida.
+Isso fornece confusão nos dados, dificultando a identificação de padrões.
+
+ShiftRows:
+As linhas da matriz de estado são deslocadas ciclicamente para a esquerda.
+Isso garante que as interações entre os bytes ocorram em diferentes posições, adicionando mais confusão.
+
+MixColumns:
+Cada coluna da matriz de estado é tratada como um polinômio, e é multiplicada por uma matriz fixa.
+Isso embaralha ainda mais os bytes dentro de cada coluna.
+
+AddRoundKey:
+A chave de rodada atual é combinada com o bloco de dados usando uma operação de XOR (OU exclusivo).
+Isso adiciona uma camada de segurança, misturando os dados com a chave.
+
+Rodada Final:
+A rodada final não inclui a etapa MixColumns.
+
+Resultado:
+Após a conclusão das rodadas, o bloco de dados é criptografado.
+
+Decifragem:
+
+A decifragem ocorre aplicando o inverso de cada passo na ordem inversa.
+
+O AES é amplamente considerado seguro e eficiente para criptografia de dados. Sua força vem da combinação de várias etapas de transformação, dificultando a recuperação dos dados originais sem a chave de criptografia correta. -->
