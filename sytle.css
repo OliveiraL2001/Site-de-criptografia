@@ -31,7 +31,7 @@ margin: 20px; ;
 
   .criptografando{
    /* color: rgb(0, 255, 21);*/
-    background-color:rgb(255, 98, 0);
+    background-color:rgb(14, 18, 74);
     font-family: '';
     font-size: 28px;
     text-align: center;
@@ -41,7 +41,7 @@ margin: 20px; ;
 
 
   #descriptografando {
-    background-color:rgb(106, 255, 0);
+    background-color:rgb(14, 18, 74);
     font-size: 28px;
     margin: 20px;
   }

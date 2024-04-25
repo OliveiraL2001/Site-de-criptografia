@@ -54,23 +54,31 @@ Decifragem:
 
 A decifragem ocorre aplicando o inverso de cada passo na ordem inversa.<br>
 
-O AES é amplamente considerado seguro e eficiente para criptografia de dados. Sua força vem da combinação de várias etapas de transformação, dificultando a recuperação dos dados originais sem a chave de criptografia correta. <br>
-    8°- <br>
-    9° <br>
+O AES é amplamente considerado seguro e eficiente para criptografia de dados. <br> 
+Sua força vem da combinação de várias etapas de transformação, dificultando a recuperação dos dados originais sem a chave de criptografia correta. <br>
+    
+    
   </div>
 <br>
     <h3>Vamos aplicar em um exemplo </h3>
 <div class="etapas">
-   ”<br>
-     <br>
-   2°   <br>
-     <br>
-    
-  <br>
-    <br>
-  
-     D= 235 <br>
-
+ 
+<p>     1. Preparação da Mensagem e da Chave:
+    ◦ Inicialmente, temos a mensagem que queremos criptografar, que é "miojo".<br>
+    ◦ Também temos uma chave de criptografia, que é uma sequência de caracteres.<br> Neste exemplo, usaremos "chave_secreta" como a chave.<br>
+2. Criptografando a Mensagem:<br>
+    ◦ A mensagem "miojo" é representada em formato binário, que é a forma como os computadores lidam com os dados.<br>
+    ◦ A chave também é convertida em um formato que o algoritmo AES possa usar.<br>
+    ◦ O algoritmo AES então executa várias iterações, ou "rodadas", para embaralhar os dados da mensagem usando operações matemáticas e substituições de bytes.<br>
+    ◦ Cada rodada aplica uma série de transformações nos dados da mensagem, misturando-os e obscurecendo-os.<br>
+    ◦ Durante essas rodadas, os dados da mensagem são combinados com a chave de criptografia usando operações como XOR (OU exclusivo).<br>
+    ◦ O resultado dessas iterações é a mensagem criptografada, que é uma sequência de bytes que não se assemelha mais à mensagem original "miojo".<br>
+3. Descriptografando a Mensagem:<br>
+    ◦ Para descriptografar a mensagem, é necessário usar a mesma chave que foi usada para criptografá-la.<br>
+    ◦ A mensagem criptografada é passada pelo algoritmo AES junto com a chave de criptografia.<br>
+    ◦ O algoritmo AES executa o processo inverso do que fez durante a criptografia, desfazendo as transformações aplicadas à mensagem.<br>
+    ◦ Após as iterações necessárias, a mensagem original "miojo" é recuperada.<br>
+Em resumo, o algoritmo AES funciona transformando a mensagem original em uma forma embaralhada e obscurescida, que é praticamente impossível de entender sem a chave correta. <br>Essa criptografia fornece uma camada de segurança, garantindo que apenas aqueles com a chave correta possam acessar e entender a mensagem original.</p>
      </p>  </div> </div>
 
      <a href="index.html"> 
