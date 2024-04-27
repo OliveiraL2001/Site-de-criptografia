@@ -11,7 +11,8 @@ background-color:black;
 font-size: 45px;
 text-align: center;
 font-family:Arial, Helvetica, sans-serif;
-margin: 20px; ;
+margin: 20px; 
+border-radius: 20px;
 
 
  }
@@ -21,31 +22,34 @@ margin: 20px; ;
     justify-content:center ;
     align-items: center;
     color: rgb(212, 251, 229);
-    background-color: rgb(14, 18, 74);
+    background-color: #003c5f;
     font-family: '';
     font-size: 28px;
     text-align: center;
     padding: 20px;
     margin: 20px;
+    border-radius: 25px;
   }
 
   .criptografando{
    /* color: rgb(0, 255, 21);*/
-    background-color:rgb(14, 18, 74);
+    background-color:#005a8e;
     font-family: '';
     font-size: 28px;
     text-align: center;
     padding: 20px;
     margin: 20px;
     color: white;
+    border-radius: 25px;
   }
 
 
   #descriptografando {
-    background-color:rgb(14, 18, 74);
+    background-color:#007dc5;
     font-size: 28px;
     margin: 20px;
     color: white;
+    border-radius: 25px;
   }
 
   .botao {
