@@ -1,94 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <!-- <link rel="stylesheet" type="text/css" href="stile.css"> -->
-      <link href = " https://oliveiral2001.github.io/Criptografia/sytle.css" rel = "stylesheet" > 
-  <!--   <script src = "https://oliveiral2001.github.io/Criptografia/script.js "><script> -->
-  <title>O que é a criptografia RSA</title>
-</head> 
-<body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" type="text/css" href="stile.css"> -->
+    <link href=" https://oliveiral2001.github.io/Criptografia/sytle.css"
+      rel="stylesheet">
+    <!--   <script src = "https://oliveiral2001.github.io/Criptografia/script.js "><script> -->
+    <title>O que é a criptografia RSA</title>
+  </head>
+  <body>
 
+    <ul>
+      <div class="subtitulo"> <h2> O que é a criptografia AES </h2> </div>
+      <div class="texto">
+        <p> Entrada de Dados:
+          O algoritmo AES recebe como entrada:
+          Uma chave de criptografia (128, 192 ou 256 bits).
+          Um bloco de dados a ser criptografado (normalmente 128 bits de
+          tamanho).
+          O bloco de dados é dividido em uma matriz retangular de 4x4 bytes (uma
+          matriz de estado).
 
-  <ul>
-    <div class="subtitulo">  <h2> O que é a criptografia AES </h2> </div>
- <div class="texto"> 
-  <p> Entrada de Dados:
-    O algoritmo AES recebe como entrada:
-        Uma chave de criptografia (128, 192 ou 256 bits).
-        Um bloco de dados a ser criptografado (normalmente 128 bits de tamanho).
-    O bloco de dados é dividido em uma matriz retangular de 4x4 bytes (uma matriz de estado).
-    
-  </p>
-  <h3>Funciona da seguite forma </h3> 
- <p>  <div  class="etapas"> <br> 
- 1°- A chave de criptografia é expandida e preparada para ser usada durante várias rodadas de criptografia.
- <br>
- 2°- Cada chave de rodada é derivada da chave original usando um algoritmo específico.
- <br>
- 3°- Rounds (Rodadas):
- O AES opera em várias rodadas (10, 12 ou 14 rodadas dependendo do tamanho da chave).
- Cada rodada executa uma série de transformações no bloco de dados. <br>
+        </p>
+        <h3>Funciona da seguite forma </h3>
+        <p> <div class="etapas"> <br>
+            1°- A chave de criptografia é expandida e preparada para ser usada
+            durante várias rodadas de criptografia.
+            <br>
+            2°- Cada chave de rodada é derivada da chave original usando um
+            algoritmo específico.
+            <br>
+            3°- Rounds (Rodadas):
+            O AES opera em várias rodadas (10, 12 ou 14 rodadas dependendo do
+            tamanho da chave).
+            Cada rodada executa uma série de transformações no bloco de dados.
+            <br>
 
- SubBytes:
- Cada byte do bloco de dados é substituído por um valor correspondente em uma S-Box (caixa de substituição) predefinida.
- Isso fornece confusão nos dados, dificultando a identificação de padrões.<br> 
- 5°- Agora calculamos D = J⁽⁻¹⁾ mod G (este é o calculo do inverso multiplicativo modular) <br>
-    6°- Seja M a string numerica que queremos codificar (Uma mensagem convestida para tabela ASCII)<br>
-    MixColumns:
-Cada coluna da matriz de estado é tratada como um polinômio, e é multiplicada por uma matriz fixa.<br>
-Isso embaralha ainda mais os bytes dentro de cada coluna.<br>
+            SubBytes:
+            Cada byte do bloco de dados é substituído por um valor
+            correspondente em uma S-Box (caixa de substituição) predefinida.
+            Isso fornece confusão nos dados, dificultando a identificação de
+            padrões.<br>
+            5°- Agora calculamos D = J⁽⁻¹⁾ mod G (este é o calculo do inverso
+            multiplicativo modular) <br>
+            6°- Seja M a string numerica que queremos codificar (Uma mensagem
+            convestida para tabela ASCII)<br>
+            MixColumns:
+            Cada coluna da matriz de estado é tratada como um polinômio, e é
+            multiplicada por uma matriz fixa.<br>
+            Isso embaralha ainda mais os bytes dentro de cada coluna.<br>
 
-AddRoundKey:
-A chave de rodada atual é combinada com o bloco de dados usando uma operação de XOR (OU exclusivo).
-Isso adiciona uma camada de segurança, misturando os dados com a chave.<br>
+            AddRoundKey:
+            A chave de rodada atual é combinada com o bloco de dados usando uma
+            operação de XOR (OU exclusivo).
+            Isso adiciona uma camada de segurança, misturando os dados com a
+            chave.<br>
 
-Rodada Final:
-A rodada final não inclui a etapa MixColumns.<br>
+            Rodada Final:
+            A rodada final não inclui a etapa MixColumns.<br>
 
-Resultado:
-Após a conclusão das rodadas, o bloco de dados é criptografado.<br>
+            Resultado:
+            Após a conclusão das rodadas, o bloco de dados é criptografado.<br>
 
-Decifragem:
+            Decifragem:
 
-A decifragem ocorre aplicando o inverso de cada passo na ordem inversa.<br>
+            A decifragem ocorre aplicando o inverso de cada passo na ordem
+            inversa.<br>
 
-O AES é amplamente considerado seguro e eficiente para criptografia de dados. <br> 
-Sua força vem da combinação de várias etapas de transformação, dificultando a recuperação dos dados originais sem a chave de criptografia correta. <br>
-    
-    
-  </div>
-<br>
-    <h3>Vamos aplicar em um exemplo </h3>
-<div class="etapas">
- 
-<p>     1. Preparação da Mensagem e da Chave:
-    ◦ Inicialmente, temos a mensagem que queremos criptografar, que é "miojo".<br>
-    ◦ Também temos uma chave de criptografia, que é uma sequência de caracteres.<br> Neste exemplo, usaremos "chave_secreta" como a chave.<br>
-2. Criptografando a Mensagem:<br>
-    ◦ A mensagem "miojo" é representada em formato binário, que é a forma como os computadores lidam com os dados.<br>
-    ◦ A chave também é convertida em um formato que o algoritmo AES possa usar.<br>
-    ◦ O algoritmo AES então executa várias iterações, ou "rodadas", para embaralhar os dados da mensagem usando operações matemáticas e substituições de bytes.<br>
-    ◦ Cada rodada aplica uma série de transformações nos dados da mensagem, misturando-os e obscurecendo-os.<br>
-    ◦ Durante essas rodadas, os dados da mensagem são combinados com a chave de criptografia usando operações como XOR (OU exclusivo).<br>
-    ◦ O resultado dessas iterações é a mensagem criptografada, que é uma sequência de bytes que não se assemelha mais à mensagem original "miojo".<br>
-3. Descriptografando a Mensagem:<br>
-    ◦ Para descriptografar a mensagem, é necessário usar a mesma chave que foi usada para criptografá-la.<br>
-    ◦ A mensagem criptografada é passada pelo algoritmo AES junto com a chave de criptografia.<br>
-    ◦ O algoritmo AES executa o processo inverso do que fez durante a criptografia, desfazendo as transformações aplicadas à mensagem.<br>
-    ◦ Após as iterações necessárias, a mensagem original "miojo" é recuperada.<br>
-Em resumo, o algoritmo AES funciona transformando a mensagem original em uma forma embaralhada e obscurescida, que é praticamente impossível de entender sem a chave correta. <br>Essa criptografia fornece uma camada de segurança, garantindo que apenas aqueles com a chave correta possam acessar e entender a mensagem original.</p>
-     </p>  </div> </div>
+            O AES é amplamente considerado seguro e eficiente para criptografia
+            de dados. <br>
+            Sua força vem da combinação de várias etapas de transformação,
+            dificultando a recuperação dos dados originais sem a chave de
+            criptografia correta. <br>
 
-     <a href="index.html"> 
+          </div>
+          <br>
+          <h3>Vamos aplicar em um exemplo </h3>
+          <div class="etapas">
 
-      <button class="botao"> voltar </button>
- </a>
+            <p> 1. Preparação da Mensagem e da Chave:
+              ◦ Inicialmente, temos a mensagem que queremos criptografar, que é
+              "miojo".<br>
+              ◦ Também temos uma chave de criptografia, que é uma sequência de
+              caracteres.<br> Neste exemplo, usaremos "chave_secreta" como a
+              chave.<br>
+              2. Criptografando a Mensagem:<br>
+              ◦ A mensagem "miojo" é representada em formato binário, que é a
+              forma como os computadores lidam com os dados.<br>
+              ◦ A chave também é convertida em um formato que o algoritmo AES
+              possa usar.<br>
+              ◦ O algoritmo AES então executa várias iterações, ou "rodadas",
+              para embaralhar os dados da mensagem usando operações matemáticas
+              e substituições de bytes.<br>
+              ◦ Cada rodada aplica uma série de transformações nos dados da
+              mensagem, misturando-os e obscurecendo-os.<br>
+              ◦ Durante essas rodadas, os dados da mensagem são combinados com a
+              chave de criptografia usando operações como XOR (OU
+              exclusivo).<br>
+              ◦ O resultado dessas iterações é a mensagem criptografada, que é
+              uma sequência de bytes que não se assemelha mais à mensagem
+              original "miojo".<br>
+              3. Descriptografando a Mensagem:<br>
+              ◦ Para descriptografar a mensagem, é necessário usar a mesma chave
+              que foi usada para criptografá-la.<br>
+              ◦ A mensagem criptografada é passada pelo algoritmo AES junto com
+              a chave de criptografia.<br>
+              ◦ O algoritmo AES executa o processo inverso do que fez durante a
+              criptografia, desfazendo as transformações aplicadas à
+              mensagem.<br>
+              ◦ Após as iterações necessárias, a mensagem original "miojo" é
+              recuperada.<br>
+              Em resumo, o algoritmo AES funciona transformando a mensagem
+              original em uma forma embaralhada e obscurescida, que é
+              praticamente impossível de entender sem a chave correta. <br>Essa
+              criptografia fornece uma camada de segurança, garantindo que
+              apenas aqueles com a chave correta possam acessar e entender a
+              mensagem original.</p>
+          </p> </div> </div>
 
-</body>
-       </html>
-<!-- 
+      <a href="index.html">
+
+        <button class="botao"> voltar </button>
+      </a>
+
+    </body>
+  </html>
+  <!-- 
 Entrada de Dados:
 O algoritmo AES recebe como entrada:
     Uma chave de criptografia (128, 192 ou 256 bits).

@@ -179,7 +179,7 @@ function calcular() {
   let resultadoModExponencial = calcularModExponencial(numC, numD, nuMN);
 
   // Exibir o resultado na página HTML
-  document.getElementById("F").textContent = "O resultado de N é: " + resultadoModExponencial;
+  document.getElementById("F").textContent = "O resultado de C é: " + resultadoModExponencial;
 }
 
 function calcularModExponencial(C, D, N) {
