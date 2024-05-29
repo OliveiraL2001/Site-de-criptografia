@@ -64,33 +64,33 @@
 // }
 
 // // Funções AES
-// function encryptAES() {
-//     const message = document.getElementById('aesMessage').value;
-//     const key = document.getElementById('aesKey').value;
+function encryptAES() {
+    const message = document.getElementById('aesMessage').value;
+    const key = document.getElementById('aesKey').value;
 
-//     if (!message || !key) {
-//         alert('Por favor, preencha a mensagem e a chave.');
-//         return;
-//     }
+    if (!message || !key) {
+        alert('Por favor, preencha a mensagem e a chave.');
+        return;
+    }
 
-//     // Fake encryption for demonstration
-//     const encryptedMessage = btoa(message + key);
-//     document.getElementById('aesEncryptedMessage').innerText = 'Mensagem Criptografada: ' + encryptedMessage;
-// }
+    // Fake encryption for demonstration
+    const encryptedMessage = btoa(message + key);
+    document.getElementById('aesEncryptedMessage').innerText = 'Mensagem Criptografada: ' + encryptedMessage;
+}
 
-// function decryptAES() {
-//     const encryptedMessage = document.getElementById('aesEncryptedMessage').innerText.replace('Mensagem Criptografada: ', '');
-//     const key = document.getElementById('aesKey').value;
+function decryptAES() {
+    const encryptedMessage = document.getElementById('aesEncryptedMessage').innerText.replace('Mensagem Criptografada: ', '');
+    const key = document.getElementById('aesKey').value;
 
-//     if (!encryptedMessage || !key) {
-//         alert('Por favor, preencha a mensagem criptografada e a chave.');
-//         return;
-//     }
+    if (!encryptedMessage || !key) {
+        alert('Por favor, preencha a mensagem criptografada e a chave.');
+        return;
+    }
 
-//     // Fake decryption for demonstration
-//     const decryptedMessage = atob(encryptedMessage).replace(key, '');
-//     document.getElementById('aesDecryptedMessage').innerText = 'Mensagem Descriptografada: ' + decryptedMessage;
-// }
+    // Fake decryption for demonstration
+    const decryptedMessage = atob(encryptedMessage).replace(key, '');
+    document.getElementById('aesDecryptedMessage').innerText = 'Mensagem Descriptografada: ' + decryptedMessage;
+}
 
 // // Helper functions
 // function gcd(a, b) {
@@ -198,4 +198,31 @@ function descriptografarMensagem() {
   document.getElementById('F').innerText = mensagem;
 }
 
+// criptografiaAES
 
+
+// script.js
+function encryptAES() {
+  const key = document.getElementById('aesKeyEncrypt').value;
+  const message = document.getElementById('aesMessageEncrypt').value;
+  if (key && message) {
+      // Criptografia AES
+      const encryptedMessage = CryptoJS.AES.encrypt(message, key).toString();
+      document.getElementById('aesEncryptedMessage').innerText = encryptedMessage;
+  } else {
+      alert('Por favor, digite a chave e a mensagem para criptografar.');
+  }
+}
+
+function decryptAES() {
+  const key = document.getElementById('aesKeyDecrypt').value;
+  const encryptedMessage = document.getElementById('aesMessageDecrypt').value;
+  if (key && encryptedMessage) {
+      // Descriptografia AES
+      const bytes = CryptoJS.AES.decrypt(encryptedMessage, key);
+      const decryptedMessage = bytes.toString(CryptoJS.enc.Utf8);
+      document.getElementById('aesDecryptedMessage').innerText = decryptedMessage;
+  } else {
+      alert('Por favor, digite a chave e a mensagem para descriptografar.');
+  }
+}

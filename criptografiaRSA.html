@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entendendo RSA</title>
+    <title>Criptografia AES</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
 </head>
 <body>
     <header>
@@ -14,86 +13,33 @@
             <a href="index.html">Home</a>
             <a href="criptografiaRSA.html">Criptografia RSA</a>
             <a href="criptografiaAES.html">Criptografia AES</a>
-            <a href="facavcmesmoRSA.html">Faça você Mesmo RSA</a>
-            <a href="facavcmesmAES.html">Faça você Mesmo AES</a>
+            <a href="facavcmesmoRSA.html">Entendendo RSA</a>
+            <a href="facavcmesmoAES.html">Entendendo AES</a>
         </nav>
     </header>
-    <!-- <main>
-        <section id="interactive" class="section">
-            <h2>Experimente Você Mesmo - RSA</h2>
-            <div class="container">
-                <h3>Criptografia RSA</h3>
-                <input type="number" id="pValue" placeholder="Escolha P (número primo)">
-                <input type="number" id="qValue" placeholder="Escolha Q (número primo)">
-                <input type="number" id="eValue" placeholder="Escolha e (coprimo de G)">
-                <button onclick="generateRSAKeys()">Gerar Chaves RSA</button>
-                <textarea id="rsaPublicKey" placeholder="Chave Pública RSA" readonly></textarea>
-                <textarea id="rsaPrivateKey" placeholder="Chave Privada RSA" readonly></textarea>
-                <textarea id="rsaMessage" placeholder="Digite a mensagem para criptografar"></textarea>
-                <button onclick="encryptRSA()">Criptografar Mensagem RSA</button>
-                <div id="rsaEncryptedMessage" class="output"></div>
-                <button onclick="decryptRSA()">Descriptografar Mensagem RSA</button>
-                <div id="rsaDecryptedMessage" class="output"></div>
-            </div>
+    <main>
+        <section id="aes" class="section">
+            <h2>Criptografia AES</h2>
+            <p>AES é um algoritmo de criptografia simétrica que utiliza a mesma chave para criptografar e descriptografar. Veja como funciona:</p>
+            <ul>
+                <li>A mensagem é dividida em blocos de 128 bits.</li>
+                <li>Cada bloco passa por várias rodadas de substituições e permutações controladas pela chave de criptografia.</li>
+                <li>As rodadas envolvem operações de substituição de bytes, transposição de linhas e colunas, e mistura de colunas.</li>
+                <li>A chave de criptografia controla as operações de cada rodada, gerando um texto cifrado.</li>
+                <li>Para descriptografar, o processo é revertido utilizando a mesma chave de criptografia.</li>
+            </ul>
+            <pre>
+1. Geração de chave:
+Crie uma chave secreta única.
+
+2. Criptografia:
+Use a chave secreta para criptografar a mensagem.
+
+3. Descriptografia:
+Use a mesma chave secreta para descriptografar a mensagem.
+            </pre>
         </section>
     </main>
     <script src="script.js"></script>
-</body> -->
-
-
-    <!-- <header>
-        <h1>Aplicativo Web de Criptografia RSA</h1>
-    </header> -->
-
-    <main>
-        <section class="key-generation">
-            <h2>Criando as Chaves</h2>
-            <label for="numP">Digite um número primo P:</label>
-            <input type="number" id="numP">
-            <label for="numQ">Digite um número primo Q:</label>
-            <input type="number" id="numQ">
-            <button onclick="realizarCalculoN()">Calcular N</button>
-            <p id="N"></p>
-            <button onclick="realizarCalculoG()">Calcular G</button>
-            <p id="G"></p>
-            <label for="J">Digite um número J (1<J<G):</label>
-            <input type="number" id="J">
-            <label for="vG">Digite o valor de G:</label>
-            <input type="number" id="vG">
-            <button onclick="calcularInverso()">Calcular D</button>
-            <p id="resultado"></p>
-        </section>
-
-        <section class="encryption">
-            <h2>Criptografando</h2>
-            <label for="mensagem">Digite a mensagem para converter para tabela ASCII:</label>
-            <input type="text" id="mensagem">
-            <button onclick="converterParaASCII()">Converter para ASCII</button>
-            <p id="tabelaASCII"></p>
-            <label for="numJ">Digite o J:</label>
-            <input type="number" id="numJ">
-            <label for="numN">Digite o N:</label>
-            <input type="number" id="numN2">
-            <button onclick="criptografarMensagem()">Criptografar</button>
-            <p id="S"></p>
-        </section>
-
-        <section class="decryption">
-            <h2>Descriptografando</h2>
-            <label for="mensagemCriptografada">Digite a mensagem criptografada:</label>
-            <input type="text" id="mensagemCriptografada">
-            <label for="numD">Digite o D:</label>
-            <input type="number" id="numD">
-            <label for="numN">Digite o N:</label>
-            <input type="number" id="numN3">
-            <button onclick="descriptografarMensagem()">Descriptografar</button>
-            <p id="F"></p>
-        </section>
-
-        <a href="index.html" class="button">Voltar</a>
-    </main>
 </body>
-
-
-
 </html>
