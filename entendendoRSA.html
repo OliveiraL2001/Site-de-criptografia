@@ -1,86 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="sytle.css">
-    <!-- <link href = " https://oliveiral2001.github.io/Criptografia/sytle.css" rel = "stylesheet" >  -->
-    <!--   <script src = "https://oliveiral2001.github.io/Criptografia/script.js "><script> -->
-    <title>O que é a criptografia RSA</title>
-  </head>
-  <body>
+    <title>Criptografia RSA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Criptografia RSA e AES</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="criptografiaRSA.html">Criptografia RSA</a>
+            <a href="criptografiaAES.html">Criptografia AES</a>
+            <a href="entendendoRSA.html">Entendendo RSA</a>
+            <a href="entendendoAES.html">Entendendo AES</a>
+        </nav>
+    </header>
+    <main>
+        <section id="rsa" class="section">
+            <h2>Criptografia RSA</h2>
+            <p>RSA é um algoritmo de criptografia assimétrica que utiliza um par de chaves: uma chave pública e uma chave privada. Veja como funciona:</p>
+            <p><strong>Passo a passo:</strong></p>
+            <pre>
+1. Pré-codificação da mensagem:
+Mensagem: "morte ao miojo"
+ASCII: 109 111 114 116 101 032 097 111 032 109 105 111 106 111
 
-    <ul>
-      <div class="subtitulo"> <h2> O que é a criptografia RSA </h2> </div>
-      <div class="texto">
-        <p> A criptografia RSA é um dos mais importantes algoritmos de
-          criptografia assimetrica
-          amplamente ultilizado para garantir a segunrança de informações
-          confidenciais transmitidas pela internet seu
-          nome é uma combinação das iniciais seus criadores. Ron Rivest, Adi
-          Shamir e Leonard Adleman o algoritmo foi publicado originalmente em
-          1977.
-          O RSA é baseado na dificuldade de fatoração de números primos grandes.
-          o RSA é um metodo de criptografia que ultilizamos duas chaves uma
-          publica que é ultilizada para criptografar a mensagem
-          esta qualquer pessoa pode ter acesso e uma privada que ultilizamos
-          para descriptografar a mensagem
-        </p>
-        <h3>Funciona da seguite forma </h3>
-        <p> <div class="etapas"> <br>
-            1°- Selecionamos 2 números primos muito grandes P e Q <br>
-            2°- Calculamos N = P * Q <br>
-            3°- Calculamos G = (P-1)*(Q-1) <br>
-            4°- Escolhemos um J tal que precisa ser maior que 1 e menor que G
-            <br>
-            5°- Agora calculamos D = J⁽⁻¹⁾ mod G (este é o calculo do inverso
-            multiplicativo modular) <br>
-            6°- Seja M a string numerica que queremos codificar (Uma mensagem
-            convestida para tabela ASCII)<br>
-            7°- A mensagem codificada será C = M^J mod N <br>
-            8°- A chave publica é J e N e a chave privada é (D,P e Q)<br>
-            9°- A mensagem decodificada será C ^D mod N <br>
-          </div>
-          <br>
-          <h3>Vamos aplicar em um exemplo </h3>
-          <div class="etapas">
-            1° vamos codificar a mensagem "morte ao miojo" mas primeiro
-            precisamos pre-codificar a mensagem para a tabela ascii
-            = “109 111 114 116 101 032 097 111 032 109 105 111 106 111”<br>
-            <br>
-            2° Agora vamos para os detalhes escolhemos 2 número primos P = 17 e
-            Q = 23
-            Calculamos N = P*Q = 17*23 = 391 <br>
+2. Escolha de dois números primos:
+P = 17, Q = 23
+N = P * Q = 17 * 23 = 391
+G = (P-1) * (Q-1) = 16 * 22 = 352
 
-            3° Agora calculamos G = (P-1).(Q-1) G= (17-1)(23-1)= 16.22 = 352
-            <br>
+3. Seleção de e (maior que 1 e menor que G, e coprimo de G):
+e = 3
 
-            4° Selecionamos outra variável J que seja maior que 1 e menor que G
-            mas esse número não possa ser divisível por 352 <br>
-            então selecionamos J = 3 <br>
-            <br>
-            5° Agora calculamos o D = e ⁽⁻¹⁾ mod G =
-            D= 235 <br>
-            6°Agora vamos criptografar a mensagem usando a formula C = M^J mod N
-            sendo que cada caractere covertido para ACII é a variavel M <br>
+4. Cálculo de d:
+d = e⁻¹ mod G = 235
 
-            -Então fica C = 109³ mod 391 = 37 sendo que o 109 é o valor da
-            tabela ASCII para a letra m de miojo sendo assim fazemos com toda a
-            mensagem <br>
-            Mensagem criptografada em RSA =
-            "37 304 45 24 16 315 79 304 315 37 265 304 30 304" <br>
-            Para de codificar a mensagem usamos a formula M = C^D mod N <br>
-            fica M = 37²³⁵ mod 391 = 109 <br>
-            fazendo com todos os numeros temos
-            "109 111 114 116 101 32 97 111 32 109 105 111 106 111" e assim
-            chegamos na mensagem em ASCII agora é só converer para mensagem
-            "morte ao miojo"
-          </p> </div> </div>
+5. Criptografia:
+C = M^e mod N
+Exemplo para M = 109:
+C = 109³ mod 391 = 37
+Mensagem criptografada: 37 304 45 24 16 315 79 304 315 37 265 304 30 304
 
-      <a href="index.html">
-
-        <button class="botao"> voltar </button>
-      </a>
-
-    </body>
-  </html>
+6. Descriptografia:
+M = C^d mod N
+Exemplo para C = 37:
+M = 37^235 mod 391 = 109
+Mensagem original: "morte ao miojo" (convertida de ASCII)
+            </pre>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

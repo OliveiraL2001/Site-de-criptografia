@@ -1,292 +1,201 @@
-//1 funcoes criando as chaves 
 
-function isPrimo(num) {
-  if (num <= 1) {
-      return false;
-  }
-  for (let i = 2; i < num; i++) {
-      if (num % i === 0) {
-          return false;
-      }
-  }
-  return true;
-}
+
+// function showSection(sectionId) {
+//     document.querySelectorAll('.section').forEach(section => {
+//         section.classList.add('hidden');
+//     });
+//     document.getElementById(sectionId).classList.remove('hidden');
+// }
+
+// // Funções RSA
+// function generateRSAKeys() {
+//     const p = parseInt(document.getElementById('pValue').value);
+//     const q = parseInt(document.getElementById('qValue').value);
+//     const e = parseInt(document.getElementById('eValue').value);
+
+//     if (!p || !q || !e) {
+//         alert('Por favor, preencha todos os campos para P, Q e e.');
+//         return;
+//     }
+
+//     const n = p * q;
+//     const g = (p - 1) * (q - 1);
+
+//     // Verifica se 'e' é coprimo com 'g'
+//     if (gcd(e, g) !== 1) {
+//         alert('e deve ser coprimo com G.');
+//         return;
+//     }
+
+//     // Calcula 'd'
+//     const d = modInverse(e, g);
+
+//     document.getElementById('rsaPublicKey').value = `Public Key: (e=${e}, n=${n})`;
+//     document.getElementById('rsaPrivateKey').value = `Private Key: (d=${d}, n=${n})`;
+// }
+
+// function encryptRSA() {
+//     const message = document.getElementById('rsaMessage').value;
+//     const e = parseInt(document.getElementById('rsaPublicKey').value.split('=')[1].split(',')[0]);
+//     const n = parseInt(document.getElementById('rsaPublicKey').value.split('=')[2].split(')')[0]);
+
+//     if (!message || !e || !n) {
+//         alert('Por favor, preencha a mensagem e gere as chaves.');
+//         return;
+//     }
+
+//     const asciiMessage = message.split('').map(char => char.charCodeAt(0));
+//     const encryptedMessage = asciiMessage.map(m => modPow(m, e, n));
+//     document.getElementById('rsaEncryptedMessage').innerText = 'Mensagem Criptografada: ' + encryptedMessage.join(' ');
+// }
+
+// function decryptRSA() {
+//     const encryptedMessage = document.getElementById('rsaEncryptedMessage').innerText.replace('Mensagem Criptografada: ', '').split(' ');
+//     const d = parseInt(document.getElementById('rsaPrivateKey').value.split('=')[1].split(',')[0]);
+//     const n = parseInt(document.getElementById('rsaPrivateKey').value.split('=')[2].split(')')[0]);
+
+//     if (!encryptedMessage || !d || !n) {
+//         alert('Por favor, preencha a mensagem criptografada e gere as chaves.');
+//         return;
+//     }
+
+//     const decryptedMessage = encryptedMessage.map(c => String.fromCharCode(modPow(parseInt(c), d, n)));
+//     document.getElementById('rsaDecryptedMessage').innerText = 'Mensagem Descriptografada: ' + decryptedMessage.join('');
+// }
+
+// // Funções AES
+// function encryptAES() {
+//     const message = document.getElementById('aesMessage').value;
+//     const key = document.getElementById('aesKey').value;
+
+//     if (!message || !key) {
+//         alert('Por favor, preencha a mensagem e a chave.');
+//         return;
+//     }
+
+//     // Fake encryption for demonstration
+//     const encryptedMessage = btoa(message + key);
+//     document.getElementById('aesEncryptedMessage').innerText = 'Mensagem Criptografada: ' + encryptedMessage;
+// }
+
+// function decryptAES() {
+//     const encryptedMessage = document.getElementById('aesEncryptedMessage').innerText.replace('Mensagem Criptografada: ', '');
+//     const key = document.getElementById('aesKey').value;
+
+//     if (!encryptedMessage || !key) {
+//         alert('Por favor, preencha a mensagem criptografada e a chave.');
+//         return;
+//     }
+
+//     // Fake decryption for demonstration
+//     const decryptedMessage = atob(encryptedMessage).replace(key, '');
+//     document.getElementById('aesDecryptedMessage').innerText = 'Mensagem Descriptografada: ' + decryptedMessage;
+// }
+
+// // Helper functions
+// function gcd(a, b) {
+//     while (b !== 0) {
+//         [a, b] = [b, a % b];
+//     }
+//     return a;
+// }
+
+// function modInverse(e, phi) {
+//     let [m0, x0, x1] = [phi, 0, 1];
+//     if (phi === 1) return 0;
+//     while (e > 1) {
+//         const q = Math.floor(e / phi);
+//         [e, phi] = [phi, e % phi];
+//         [x0, x1] = [x1 - q * x0, x0];
+//     }
+//     if (x1 < 0) x1 += m0;
+//     return x1;
+// }
+
+// function modPow(base, exp, mod) {
+//     if (mod === 1) return 0;
+//     let result = 1;
+//     base = base % mod;
+//     while (exp > 0) {
+//         if (exp % 2 === 1) result = (result * base) % mod;
+//         exp = exp >> 1;
+//         base = (base * base) % mod;
+//     }
+//     return result;
+// }
+
+
+
+
+// ------------------Funçoes do outro documento  -------------------
 
 
 function realizarCalculoN() {
-  var numP = parseInt(document.getElementById("numP").value);
-  var numQ = parseInt(document.getElementById("numQ").value);
-
-  if (isPrimo(numP) && isPrimo(numQ)) {
-      var N = numP * numQ;
-      document.getElementById("N").textContent = "O resultado de N é: " + N;
-  } else {
-      document.getElementById("N").textContent = "Certifique-se de que P e Q sejam números primos.";
-  }
+  const p = parseInt(document.getElementById('numP').value);
+  const q = parseInt(document.getElementById('numQ').value);
+  const n = p * q;
+  document.getElementById('N').innerText = 'N = ' + n;
 }
 
-
-
-function realizarCalculoG(){
-  var numP = parseInt(document.getElementById("numP").value);
-  var numQ = parseInt(document.getElementById("numQ").value);
-
-  if (isPrimo(numP) && isPrimo(numQ)) {
-      var G = (numP - 1)*(numQ-1) ;
-      document.getElementById("G").textContent = "O resultado de G é: " + G;
-  } else {
-      document.getElementById("G").textContent = "Certifique-se de que P e Q sejam números primos.";
-  }
-
-
+function realizarCalculoG() {
+  const p = parseInt(document.getElementById('numP').value);
+  const q = parseInt(document.getElementById('numQ').value);
+  const g = (p - 1) * (q - 1);
+  document.getElementById('G').innerText = 'G = ' + g;
 }
 
-
-
-
-
-function modInverse(J, vG) {
-  J = ((J % vG) + vG) % vG; // Garante que 'J' seja positivo
-
-  for (let x = 1; x < vG; x++) {
-      if ((J * x) % vG === 1) {
-          return x;
+function calcularInverso() {
+  const j = parseInt(document.getElementById('J').value);
+  const g = parseInt(document.getElementById('vG').value);
+  let d = 0;
+  for (let i = 1; i < g; i++) {
+      if ((j * i) % g === 1) {
+          d = i;
+          break;
       }
   }
-
-  return null; // Inverso multiplicativo não existe
-}
-
-function calcularinverso() {
-  var J = parseInt(document.getElementById("J").value);
-  var vG = parseInt(document.getElementById("vG").value);
-
-  if (!isNaN(J) && !isNaN(vG) && vG !== 0) {
-      const inverse = modInverse(J, vG);
-
-      if (inverse !== null) {
-          document.getElementById("resultado").textContent = `O inverso multiplicativo de ${J} módulo ${vG} é ${inverse}`;
-      } else {
-          document.getElementById("resultado").textContent = `O inverso multiplicativo de ${J} módulo ${G} não existe`;
-      }
-  } else {
-      document.getElementById("resultado").textContent = "Certifique-se de que os valores de J e G sejam números válidos.";
-  }
-}
-
-
-
-//2 funcos criptografando
-function mensagemParaASCII(mensagem) {
-  var tabelaASCII = [];
-  for (var i = 0; i < mensagem.length; i++) {
-    var char = mensagem[i];
-    var codigoASCII = char.charCodeAt(0);
-    tabelaASCII.push(codigoASCII);
-  }
-  return tabelaASCII;
+  document.getElementById('resultado').innerText = 'D = ' + d;
 }
 
 function converterParaASCII() {
-  var mensagem = document.getElementById('mensagem').value;
-  var tabela = mensagemParaASCII(mensagem);
-  var tabelaASCIIElement = document.getElementById('tabelaASCII');
-  tabelaASCIIElement.textContent = tabela.join(' ');
-}
-
-
-function calcularmodexponencial() {
-  let  numM = parseInt(document.getElementById("numM").value);
-  let  numJ = parseInt(document.getElementById("numJ").value);
-  let  numN = parseInt(document.getElementById("numN").value);
-
-  let resultadomodexponencial = Calcularmodexponencial(numM, numJ, numN);
-  //console.log("resultado do calculo de mod exponencial:", resultadomodexponencial);
-
-   document.getElementById("S").textContent = "O resultado de N é: " +  resultadomodexponencial;
-
-}
-
-function Calcularmodexponencial(M, J, N ){
-  
-
-return((M ** J) %  N );
-
-
-
-}
-
-
-
-function criptografar() {
-  let mensagemUsuario = document.getElementById("mensagem").value;
-  let numJ = parseInt(document.getElementById("numJ").value);
-  let numN = parseInt(document.getElementById("numN").value);
-
-  let asciiArray = mensagemParaAscii(mensagemUsuario);
-  let resultadoModExponencial = calcularModExponencial(asciiArray, numJ, numN);
-
- console.log("Mensagem em ASCII: ", asciiArray);
- // console.log("Resultado do cálculo mod exponencial: ", resultadoModExponencial);
-  console.log("resultado do calculo de mod exponencial:",  resultadoModExponencial);
-
-  document.getElementById("R").textContent = "O resultado de total é: " +  resultadoModExponencial.join(" ");
-
-}
-
-function mensagemParaAscii(mensagem) {
-  let asciiArray = [];
+  const mensagem = document.getElementById('mensagem').value;
+  const asciiValues = [];
   for (let i = 0; i < mensagem.length; i++) {
-    asciiArray.push(mensagem.charCodeAt(i));
+      asciiValues.push(mensagem.charCodeAt(i));
   }
-  return asciiArray;
+  document.getElementById('tabelaASCII').innerText = asciiValues.join(' ');
 }
 
-
-
-function calcularModExponencial(M, J, N) {
-  let resultadoModExponencial = [];
-  for (let i = 0; i < M.length; i++) {
-    let mensagem = M[i];
-    let c = ((mensagem ** J) % N);
-    resultadoModExponencial.push(c);
+function modExp(base, exp, mod) {
+  let result = 1;
+  base = base % mod;
+  while (exp > 0) {
+      if (exp % 2 === 1) {
+          result = (result * base) % mod;
+      }
+      exp = Math.floor(exp / 2);
+      base = (base * base) % mod;
   }
-  return resultadoModExponencial;
+  return result;
 }
 
-
-
-
-
-
-//3 funcoes descriptografando
-
-
-//funcao numero/numero
-function calcular() {
-  // Obter os valores dos elementos HTML e converter para números inteiros
-  let numC = parseInt(document.getElementById("numC").value);
-  let numD = parseInt(document.getElementById("numD").value);
-  let nuMN = parseInt(document.getElementById("nuMN").value);
-
-  // Verificar se os valores lidos são válidos
-  if (isNaN(numC) || isNaN(numD) || isNaN(nuMN)) {
-    alert("Por favor, insira números válidos para C, D e N.");
-    return;
-  }
-
-  // Calcular o resultado da operação de exponenciação modular
-  let resultadoModExponencial = calcularModExponencial(numC, numD, nuMN);
-
-  // Exibir o resultado na página HTML
-  document.getElementById("F").textContent = "O resultado de C é: " + resultadoModExponencial;
+function criptografarMensagem() {
+  const asciiString = document.getElementById('tabelaASCII').innerText;
+  const j = parseInt(document.getElementById('numJ').value);
+  const n = parseInt(document.getElementById('numN2').value);
+  const asciiValues = asciiString.split(' ').map(Number);
+  const criptografados = asciiValues.map(value => modExp(value, j, n));
+  document.getElementById('S').innerText = criptografados.join(' ');
 }
 
-function calcularModExponencial(C, D, N) {
-  // Realizar a operação de exponenciação modular
-  return ((C ** D) % N);
+function descriptografarMensagem() {
+  const criptografadosString = document.getElementById('mensagemCriptografada').value;
+  const d = parseInt(document.getElementById('numD').value);
+  const n = parseInt(document.getElementById('numN3').value);
+  const criptografadosValues = criptografadosString.split(' ').map(Number);
+  const descriptografados = criptografadosValues.map(value => modExp(value, d, n));
+  const mensagem = descriptografados.map(value => String.fromCharCode(value)).join('');
+  document.getElementById('F').innerText = mensagem;
 }
-
-/*
-function calcular() {
-  let  numC = BigInt(document.getElementById("numC").value);
-  let  numD = BigInt(document.getElementById("numD").value);
-  let  nuMN = BigInt(document.getElementById("nuMN").value);
-
-  let resultadomodexponencial = Calcularmodexponencial(numC, numD, nuMN);
-  //console.log("resultado do calculo de mod exponencial:", resultadomodexponencial);
-
-   document.getElementById("F").textContent = "O resultado de N é: " +  resultadomodexponencial;
-
-}
-
-function Calcularmodexponencial(C, D, N){
-  
-
-return((C ** D) %  N );
-
-
-
-}
-*/
-
-//direto
-
-function ModExponencial() {
-  // Obter valores do usuário
-  let numerosC = document.getElementById("numerosC").value.split(" ").map(str => parseInt(str.trim()));
-  let numD = parseInt(document.getElementById("numD").value);
-  let nuMN = parseInt(document.getElementById("nuMN").value);
-
-
-
-  // Calcular o resultado para cada número em C
-  let resultadoModExponencial = numerosC.map(c => BigInt(c) ** BigInt(numD) % BigInt(nuMN));
-
-  // Exibir resultados
-  console.log("Resultado do cálculo mod exponencial:", resultadoModExponencial);
-  document.getElementById("U").textContent = "O resultado é: " + resultadoModExponencial.join(" ");
-}
-
-
-
-
-/*
-function descriptografar() {
-  let Mensagem = document.getElementById("Mensagem").value;
-  let numD = parseInt(document.getElementById("numD").value);
-  let nuMN = parseInt(document.getElementById("nuMN").value);
-
-  // Mantenha os números como strings, evitando a conversão para inteiros
-  let numeros = Mensagem.split(",");
-
-  let resultadoModExponencial = calcularModExponencia(numeros, numD, nuMN);
-
-  console.log("números em ASCII: ", numeros);
-  console.log("Resultado do cálculo mod exponencial:", resultadoModExponencial);
-
-  document.getElementById("U").textContent = "O resultado de total é: " + resultadoModExponencial.join("  ");
-}
-
-function calcularModExponencia(mensagem, D, N) {
-  let resultadoModExponencial = [];
-  for (let i = 0; i < mensagem.length; i++) {
-    let m = mensagem[i];
-    // Converta para inteiro antes de realizar o cálculo, se necessário
-    let c = (parseInt(m) ** D) % N;
-    resultadoModExponencial.push(c);
-  }
-  return resultadoModExponencial;
-}
-
-
-
-
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

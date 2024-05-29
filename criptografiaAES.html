@@ -1,46 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AES Encryption and Decryption</title>
-<link href = " https://oliveiral2001.github.io/Criptografia/sytle.css" rel = "stylesheet" > 
-<script src = " https://oliveiral2001.github.io/Criptografia/script.js "></script> 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entendendo AES</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h2>AES Encryption and Decryption</h2>
-
-<label for="message">Message:</label><br>
-<textarea id="message" rows="4" cols="50"></textarea><br><br>
-
-<button onclick="encryptMessage()">Encrypt</button>
-<button onclick="decryptMessage()">Decrypt</button><br><br>
-
-<label for="encrypted">Encrypted Message:</label><br>
-<textarea id="encrypted" rows="4" cols="50" readonly></textarea><br><br>
-
-<label for="decrypted">Decrypted Message:</label><br>
-<textarea id="decrypted" rows="4" cols="50" readonly></textarea><br><br>
-
-<script>
-// Função para criptografar a mensagem
-function encryptMessage() {
-    var message = document.getElementById("message").value;
-    var key = "chave_secreta"; // Chave de criptografia (deve ter 16, 24 ou 32 caracteres)
-    var encrypted = CryptoJS.AES.encrypt(message, key).toString();
-    document.getElementById("encrypted").value = encrypted;
-}
-
-// Função para descriptografar a mensagem
-function decryptMessage() {
-    var encrypted = document.getElementById("encrypted").value;
-    var key = "chave_secreta"; // Chave de criptografia (deve ser a mesma usada para criptografar)
-    var decrypted = CryptoJS.AES.decrypt(encrypted, key).toString(CryptoJS.enc.Utf8);
-    document.getElementById("decrypted").value = decrypted;
-}
-</script>
-
+    <header>
+        <h1>Criptografia RSA e AES</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="criptografiaRSA.html">Criptografia RSA</a>
+            <a href="criptografiaAES.html">Criptografia AES</a>
+            <a href="facavcmesmoRSA.html">Entendendo RSA</a>
+            <a href="facavcmesmoAES.html">Entendendo AES</a>
+        </nav>
+    </header>
+    <main>
+        <section id="interactive" class="section">
+            <h2>Experimente Você Mesmo - AES</h2>
+            <div class="container">
+                <h3>Criptografia AES</h3>
+                <input type="text" id="aesKey" placeholder="Digite a chave AES">
+                <textarea id="aesMessage" placeholder="Digite a mensagem para criptografar"></textarea>
+                <button onclick="encryptAES()">Criptografar Mensagem AES</button>
+                <div id="aesEncryptedMessage" class="output"></div>
+                <button onclick="decryptAES()">Descriptografar Mensagem AES</button>
+                <div id="aesDecryptedMessage" class="output"></div>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
 </body>
 </html>
