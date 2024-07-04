@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criptografia AES</title>
+    <title>Criptografia RSA</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,25 +18,37 @@
         </nav>
     </header>
     <main>
-        <section id="aes" class="section">
-            <h2>Criptografia AES</h2>
-            <p>AES é um algoritmo de criptografia simétrica que utiliza a mesma chave para criptografar e descriptografar. Veja como funciona:</p>
-            <ul>
-                <li>A mensagem é dividida em blocos de 128 bits.</li>
-                <li>Cada bloco passa por várias rodadas de substituições e permutações controladas pela chave de criptografia.</li>
-                <li>As rodadas envolvem operações de substituição de bytes, transposição de linhas e colunas, e mistura de colunas.</li>
-                <li>A chave de criptografia controla as operações de cada rodada, gerando um texto cifrado.</li>
-                <li>Para descriptografar, o processo é revertido utilizando a mesma chave de criptografia.</li>
-            </ul>
+        <section id="rsa" class="section">
+            <h2>Criptografia RSA</h2>
+            <p>RSA é um algoritmo de criptografia assimétrica que utiliza um par de chaves: uma chave pública e uma chave privada. Veja como funciona:</p>
+            <p><strong>Passo a passo:</strong></p>
             <pre>
-1. Geração de chave:
-Crie uma chave secreta única.
+1. Pré-codificação da mensagem:
+Mensagem: "morte ao miojo"
+ASCII: 109 111 114 116 101 032 097 111 032 109 105 111 106 111
 
-2. Criptografia:
-Use a chave secreta para criptografar a mensagem.
+2. Escolha de dois números primos:
+P = 17, Q = 23
+N = P * Q = 17 * 23 = 391
+G = (P-1) * (Q-1) = 16 * 22 = 352
 
-3. Descriptografia:
-Use a mesma chave secreta para descriptografar a mensagem.
+3. Seleção de e (maior que 1 e menor que G, e coprimo de G):
+e = 3
+
+4. Cálculo de d:
+d = e⁻¹ mod G = 235
+
+5. Criptografia:
+C = M^e mod N
+Exemplo para M = 109:
+C = 109³ mod 391 = 37
+Mensagem criptografada: 37 304 45 24 16 315 79 304 315 37 265 304 30 304
+
+6. Descriptografia:
+M = C^d mod N
+Exemplo para C = 37:
+M = 37^235 mod 391 = 109
+Mensagem original: "morte ao miojo" (convertida de ASCII)
             </pre>
         </section>
     </main>
